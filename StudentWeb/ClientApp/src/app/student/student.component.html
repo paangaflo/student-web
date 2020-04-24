@@ -44,7 +44,7 @@
                             <tr>
                                 <td class="tbl1">
                                     <mat-form-field class="demo-full-width">
-                                        <input formControlName="Age" matTooltip="Enter age" matInput placeholder="Age">
+                                        <input formControlName="Age" matTooltip="Enter age" matInput placeholder="Age" type="number">
                                     </mat-form-field>
                                     <mat-error>
                                         <span *ngIf="!studentForm.get('Age').value && studentForm.get('Age').touched"></span>
@@ -79,33 +79,33 @@
                         </table>
                     </mat-grid-tile>
                     <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
-                    <mat-grid-tile [colspan]="4" [rowspan]="1">
-                        <table class="table">
-                            <tr ngclass="btn-primary">
-                                <th class="tbl2">Username</th>
-                                <th class="tbl2">First Name</th>
-                                <th class="tbl2">Last Name</th>
-                                <th class="tbl2">Age</th>
-                                <th class="tbl2">Career</th>
-                                <th class="tbl2">Edit</th>
-                                <th class="tbl2">Delete</th>
-                            </tr>
-                            <tr *ngFor="let student of allStudents | async">
-                                <td class="tbl2">{{student.username}}</td>
-                                <td class="tbl2">{{student.firstName}}</td>
-                                <td class="tbl2">{{student.lastName}}</td>
-                                <td class="tbl2">{{student.age}}</td>
-                                <td class="tbl2">{{student.career}}</td>
-                                <td class="tbl2">
-                                    <button type="button" class="btn btn-info" matTooltip="Click Edit Button" (click)="loadStudentToEdit(student.id)">Edit</button>
-                                </td>
-                                <td class="tbl2">
-                                    <button type="button" class="btn btn-danger" matTooltip="Click Delete Button" (click)="deleteStudent(student.id)">Delete</button>
-                                </td>
-                            </tr>
-                        </table>
-                    </mat-grid-tile>
                 </mat-grid-list>
             </form>
+            <div class="table-content">
+                <table class="table">
+                    <tr ngclass="btn-primary">
+                        <th class="tbl2">Username</th>
+                        <th class="tbl2">First Name</th>
+                        <th class="tbl2">Last Name</th>
+                        <th class="tbl2">Age</th>
+                        <th class="tbl2">Career</th>
+                        <th class="tbl2">Edit</th>
+                        <th class="tbl2">Delete</th>
+                    </tr>
+                    <tr *ngFor="let student of allStudents | async">
+                        <td class="tbl2">{{student.username}}</td>
+                        <td class="tbl2">{{student.firstName}}</td>
+                        <td class="tbl2">{{student.lastName}}</td>
+                        <td class="tbl2">{{student.age}}</td>
+                        <td class="tbl2">{{student.career}}</td>
+                        <td class="tbl2">
+                            <button type="button" class="btn btn-info" matTooltip="Click Edit Button" (click)="loadStudentToEdit(student.id)">Edit</button>
+                        </td>
+                        <td class="tbl2">
+                            <button type="button" class="btn btn-danger" matTooltip="Click Delete Button" (click)="deleteStudent(student.id)">Delete</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </mat-card-content>
 </mat-card>
